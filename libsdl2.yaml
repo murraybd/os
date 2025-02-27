@@ -39,9 +39,10 @@ subpackages:
       - uses: split/dev
     test:
       pipeline:
+        - uses: test/pkgconf
         - uses: test/ldd-check
           with:
-            packages: $(basename ${{targets.contextdir}})
+            packages: ${{subpkg.name}}
 
 update:
   enabled: true
